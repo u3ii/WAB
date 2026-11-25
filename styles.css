@@ -128,3 +128,31 @@ footer .footer-line { margin:0.5rem 0; }
   .about-main-img img { margin-top: 60px; }
   .about-sections { margin: 1rem; }
 }
+/* ===== ترتيب الشاشات الصغيرة (الجوال) ===== */
+@media screen and (max-width: 768px) {
+  /* 1. إعطاء مساحة للهيدر عشان ما يغطي الفيديو */
+  .video-container {
+    margin-top: 65px !important; 
+    height: 350px !important;
+  }
+
+  /* 2. ترتيب النص فوق الفيديو وتصغيره */
+  .video-overlay {
+    justify-content: center !important;
+    align-items: flex-end !important;
+    padding-bottom: 20px !important;
+    padding-right: 0 !important; 
+  }
+
+  .slider-text {
+    font-size: 1.1rem !important;
+    max-width: 85% !important;
+    text-align: center !important;
+    padding: 10px 15px !important;
+  }
+
+  /* 3. تصغير اللوجو شوي عشان ما ياخذ مساحة */
+  header .logo-img {
+    height: 30px !important;
+  }
+}
