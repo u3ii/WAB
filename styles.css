@@ -130,29 +130,30 @@ footer .footer-line { margin:0.5rem 0; }
 }
 /* ===== ترتيب الشاشات الصغيرة (الجوال) ===== */
 @media screen and (max-width: 768px) {
-  /* 1. إعطاء مساحة للهيدر عشان ما يغطي الفيديو */
+  /* إعطاء مساحة للهيدر عشان ما يغطي الفيديو */
   .video-container {
-    margin-top: 65px !important; 
+    margin-top: 60px !important; 
     height: 350px !important;
   }
 
-  /* 2. ترتيب النص فوق الفيديو وتصغيره */
+  /* ترتيب النص فوق الفيديو */
   .video-overlay {
     justify-content: center !important;
     align-items: flex-end !important;
-    padding-bottom: 20px !important;
+    padding-bottom: 15px !important;
     padding-right: 0 !important; 
   }
 
   .slider-text {
-    font-size: 1.1rem !important;
-    max-width: 85% !important;
+    font-size: 0.95rem !important; /* تصغير الخط عشان يطلع كامل */
+    max-width: 90% !important;
     text-align: center !important;
-    padding: 10px 15px !important;
+    padding: 8px 10px !important;
+    white-space: normal !important; /* يخلي النص ينزل لسطر ثاني */
+    line-height: 1.4 !important;
   }
 
-  /* 3. تصغير اللوجو شوي عشان ما ياخذ مساحة */
   header .logo-img {
-    height: 30px !important;
+    height: 35px !important;
   }
 }
