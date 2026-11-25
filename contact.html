@@ -9,7 +9,24 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
+<style>
+  .popup-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5); z-index: 9999; justify-content: center; align-items: center;
+  }
+  .popup-box {
+    background: #fdf8f0; border: 3px solid #5c3d2e; border-radius: 15px;
+    padding: 2rem; text-align: center; max-width: 400px; width: 90%; box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  }
+  .popup-icon { font-size: 3rem; color: #5c3d2e; margin-bottom: 1rem; }
+  .popup-box h2 { color: #5c3d2e; margin-bottom: 1rem; }
+  .popup-box p { color: #3a2e27; margin-bottom: 1.5rem; font-size: 1.1rem; }
+  .popup-btn {
+    background: #5c3d2e; color: white; border: none; padding: 10px 30px;
+    border-radius: 10px; font-size: 1.1rem; cursor: pointer; font-weight: bold;
+  }
+  .popup-btn:hover { background: #8b5e3c; }
+</style>
 <!-- HEADER -->
 <header>
  <div class="logo">
@@ -33,14 +50,23 @@
 <!-- CONTACT BOX -->
 <section class="contact-box">
   <h2>تواصل معنا إذا واجهتك أي مشكلة</h2>
-  <form action="w1.php" method="post">
+  <form id="contactForm" action="https://formsubmit.co/tmheba4@gmail.com" method="POST">
     <input type="text" id="name" name="name" placeholder="الاسم الكامل" required>
     <input type="email" id="email" name="email" placeholder="الإيميل" required>
     <input type="tel" name="phone" placeholder="رقم الهاتف" required>
     <textarea name="message" placeholder="الرسالة" rows="6" required></textarea>
-    <button type="submit">إرسال</button>
+  <button type="submit" id="submitBtn">إرسال</button>
   </form>
 </section>
+ <!-- النافذة المنبثقة -->
+<div class="popup-overlay" id="successPopup">
+  <div class="popup-box">
+    <div class="popup-icon">✓</div>
+    <h2>تم الإرسال بنجاح!</h2>
+    <p>شكراً لتواصلك مع WAB Cafe، سنقوم بالرد عليك في أقرب وقت.</p>
+    <button class="popup-btn" onclick="closePopup()">حسناً</button>
+  </div>
+</div>
 <!-- FOOTER -->
 <footer>
   <div class="footer-line">© 2025 WAB Cafe</div>
