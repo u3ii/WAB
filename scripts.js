@@ -16,31 +16,27 @@ sideMenu.querySelectorAll('a').forEach(link => {
 });
 
 // ===== RECTANGLES & INFO-BOXES EFFECTS =====
-// ===== RECTANGLES & INFO-BOXES EFFECTS (للموبايل واللاب توب) =====
+// ===== RECTANGLES & INFO-BOXES EFFECTS (معدل للموبايل) =====
 document.querySelectorAll('.rect, .info-box, .product-card').forEach(el => {
-  
-  // دالة عشان تبرز المربع
   const activateEffect = () => {
-    el.style.transform = 'scale(1.03)'; // خففت الحركة شوي عشان ما تطلع فوق بعضها بالجوال
-    el.style.boxShadow = '0 6px 15px rgba(0,0,0,0.2)';
-    el.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
+    el.style.transform = 'scale(0.98)'; /* الحركة بالجوال تصير ضغطة خفيفة */
+    el.style.boxShadow = '0 4px 10px rgba(0,0,0,0.2)';
+    el.style.transition = 'transform 0.2s ease, box-shadow 0.2s ease';
   };
 
-  // دالة عشان ترجع المربع لطبيعته
   const deactivateEffect = () => {
     el.style.transform = 'scale(1)';
     el.style.boxShadow = 'none';
   };
 
-  // للاب توب (الماوس)
+  // للاب توب
   el.addEventListener('mouseenter', activateEffect);
   el.addEventListener('mouseleave', deactivateEffect);
   
-  // للجوال (اللمس)
-  el.addEventListener('touchstart', activateEffect);
+  // للجوال (يشتغل بمجرد اللمس)
+  el.addEventListener('touchstart', activateEffect, {passive: true});
   el.addEventListener('touchend', deactivateEffect);
 });
-
 
 // ===== SLIDER TEXT ON VIDEO =====
 const sliderText = document.querySelector('.slider-text');
