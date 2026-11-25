@@ -57,36 +57,3 @@ if (mainVideo) {
     mainVideo.play();
   });
 }
-<script>
-  const form = document.getElementById('contactForm');
-  const popup = document.getElementById('successPopup');
-  const submitBtn = document.getElementById('submitBtn');
-
-  form.addEventListener('submit', function(e) {
-    e.preventDefault(); 
-    submitBtn.textContent = 'جاري الإرسال...';
-    submitBtn.disabled = true;
-
-    const formData = new FormData(form);
-    fetch(form.action, {
-      method: 'POST',
-      body: formData,
-      headers: { 'Accept': 'application/json' }
-    })
-    .then(response => {
-      popup.style.display = 'flex';
-      form.reset();
-      submitBtn.textContent = 'إرسال';
-      submitBtn.disabled = false;
-    })
-    .catch(error => {
-      alert('حدث خطأ أثناء الإرسال، يرجى المحاولة مرة أخرى.');
-      submitBtn.textContent = 'إرسال';
-      submitBtn.disabled = false;
-    });
-  });
-
-  function closePopup() {
-    popup.style.display = 'none';
-  }
-</script>
