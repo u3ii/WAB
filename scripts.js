@@ -1,12 +1,6 @@
 
 
-// ===== LOADER =====
-window.addEventListener('load', () => {
-  const loader = document.getElementById('loader');
-  loader.style.transition = 'opacity 1s ease';
-  loader.style.opacity = '0';
-  setTimeout(() => loader.style.display = 'none', 1000);
-});
+
 
 // ===== SIDEBAR MENU TOGGLE =====
 const menuToggle = document.getElementById('menuToggle');
