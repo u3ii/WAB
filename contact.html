@@ -7,9 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>WAB Cafe - تواصل</title>
 <link rel="stylesheet" href="styles.css">
-</head>
-<body>
 <style>
+  /* ستايل البوب أب (النافذة المنبثقة) */
   .popup-overlay {
     display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
     background: rgba(0,0,0,0.5); z-index: 9999; justify-content: center; align-items: center;
@@ -27,12 +26,14 @@
   }
   .popup-btn:hover { background: #8b5e3c; }
 </style>
+</head>
+<body>
+
 <!-- HEADER -->
 <header>
- <div class="logo">
-  <img src="images/log.PNG" alt="Logo" class="logo-img">
-</div>
-
+  <div class="logo">
+    <img src="images/log.PNG" alt="Logo" class="logo-img">
+  </div>
   <div id="menuToggle">
     <span></span>
     <span></span>
@@ -45,20 +46,25 @@
   <a href="index.html">الرئيسية</a>
   <a href="products.html">منتجات</a>
   <a href="about.html">عنا</a>
-  <a href="contact.html">تواصل</a>
+  <a href="contact.html" class="active">تواصل</a>
 </div>
-<!-- CONTACT BOX -->
-<section class="contact-box">
-  <h2>تواصل معنا إذا واجهتك أي مشكلة</h2>
-  <form id="contactForm" action="https://formsubmit.co/tmheba4@gmail.com" method="POST">
-    <input type="text" id="name" name="name" placeholder="الاسم الكامل" required>
-    <input type="email" id="email" name="email" placeholder="الإيميل" required>
-    <input type="tel" name="phone" placeholder="رقم الهاتف" required>
-    <textarea name="message" placeholder="الرسالة" rows="6" required></textarea>
-  <button type="submit" id="submitBtn">إرسال</button>
-  </form>
-</section>
- <!-- النافذة المنبثقة -->
+
+<!-- CONTACT SECTION (تمت إضافة هذا الغلاف عشان يدفع الفوتر لتحت) -->
+<div class="contact-section">
+  <section class="contact-box">
+    <h2>تواصل معنا إذا واجهتك أي مشكلة</h2>
+    <!-- الفورم مربوط بـ FormSubmit عشان يرسل للإيميل -->
+    <form id="contactForm" action="https://formsubmit.co/tmheba4@gmail.com" method="POST">
+      <input type="text" id="name" name="name" placeholder="الاسم الكامل" required>
+      <input type="email" id="email" name="email" placeholder="الإيميل" required>
+      <input type="tel" name="phone" placeholder="رقم الهاتف" required>
+      <textarea name="message" placeholder="الرسالة" rows="6" required></textarea>
+      <button type="submit" id="submitBtn">إرسال</button>
+    </form>
+  </section>
+</div>
+
+<!-- النافذة المنبثقة (البوب أب) -->
 <div class="popup-overlay" id="successPopup">
   <div class="popup-box">
     <div class="popup-icon">✓</div>
@@ -67,17 +73,20 @@
     <button class="popup-btn" onclick="closePopup()">حسناً</button>
   </div>
 </div>
+
 <!-- FOOTER -->
 <footer>
-  <div class="footer-line">© 2025 WAB Cafe</div>
+  <div class="footer-line">©️ 2025 WAB Cafe</div>
   <div class="footer-line">
     <a href="https://www.instagram.com/wabcafe.sa" target="_blank">Instagram</a> | 
     <a href="https://www.tiktok.com/@wabcafe.sa" target="_blank">TikTok</a> | 
     <a href="mailto:tmheba4@gmail.com">Email</a>
   </div>
 </footer>
+
 <script src="scripts.js"></script>
-  <script>
+<script>
+  // كود إرسال الفورم وإظهار البوب أب
   const form = document.getElementById('contactForm');
   const popup = document.getElementById('successPopup');
   const submitBtn = document.getElementById('submitBtn');
