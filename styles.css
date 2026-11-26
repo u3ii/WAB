@@ -5,15 +5,20 @@
   box-sizing: border-box;
 }
 
-body, html { 
+html, body { 
   margin: 0; 
   padding: 0; 
   font-family: 'Saudi', Arial, sans-serif; 
   background: #f5f0e6; 
   overflow-x: hidden;
-  min-height: 100vh;
+  height: 100%;
+}
+
+/* توزيع الصفحة عشان الفوتر ينزل لتحت */
+body {
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 }
 
 #loader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #e9ddcf; display: flex; justify-content: center; align-items: center; z-index: 9999; }
@@ -48,12 +53,11 @@ header .logo-img {
   object-fit: contain;
 }
 
-/* إصلاح الشرطات المنقسمة */
+/* أيقونة الشرطات مرتبة */
 #menuToggle { 
   display: flex; 
   flex-direction: column; 
-  justify-content: space-between; /* توزيع متساوي */
-  align-items: center;
+  justify-content: space-between; 
   width: 30px; 
   height: 22px; 
   cursor: pointer; 
@@ -77,19 +81,19 @@ header .logo-img {
 .rect img { width: 100%; height: 100%; object-fit: cover; border-radius: 15px; }
 .rect-text { position: absolute; bottom: 15px; right: 15px; background: #5c3d2e; color: white; padding: 0.4rem 1.2rem; border-radius: 8px; font-size: 1.3rem; font-weight: bold; }
 
-/* صورة "عنا" (زوايا حادة فوق، منحنية تحت، حدود 1 بكسل) */
+/* صورة صفحة "عنا" (بدون حدود جانبية، زوايا سفلية منحنية) */
 .about-main-img { 
   margin-top: 70px; 
   width: 100%;
+  padding: 0; 
 } 
 
 .about-main-img img { 
   width: 100%; 
   height: auto; 
   display: block;
-  border-radius: 0 0 15px 15px !important; /* من فوق حاد، من تحت منحني */
-  border: 1px solid #5c3d2e !important; /* حدود 1 بكسل */
-  border-top: none !important; /* شلنا الحد من فوق عشان يندمج مع الهيدر */
+  border-radius: 0 0 15px 15px !important; 
+  border: none !important; 
 }
 
 .about-sections { display: flex; flex-direction: column; gap: 1.5rem; margin: 2rem; }
@@ -98,15 +102,38 @@ header .logo-img {
 .info-box p, .info-box ul { color: #3a2e27; line-height: 1.6; }
 .info-box ul li { margin-bottom: 0.5rem; }
 
-/* صفحة التواصل (حل مشكلة الفوتر المرتفع) */
-main, .contact-box { flex: 1; } /* دفع الفوتر لتحت */
-.contact-box { max-width: 700px; margin: 120px auto 2rem auto; padding: 2rem; background: #fdf8f0; border: 3px solid #5c3d2e; border-radius: 15px; text-align: center; }
+/* صفحة التواصل (تعديل الفوتر والبوكس) */
+.contact-section {
+  flex: 1; /* هذا اللي يدفع الفوتر لتحت */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* يوسط البوكس رأسياً */
+}
+
+.contact-box { 
+  max-width: 700px; 
+  margin: 100px auto 3rem auto; /* نزلناه شوي بالنص */
+  padding: 2rem; 
+  background: #fdf8f0; 
+  border: 3px solid #5c3d2e; 
+  border-radius: 15px; 
+  text-align: center; 
+  width: 90%;
+}
+
 .contact-box h2 { color: #5c3d2e; margin-bottom: 1.5rem; font-size: 1.4rem; }
 .contact-box input, .contact-box textarea { width: 100%; padding: 0.8rem 1rem; margin-bottom: 1rem; border: 2px solid #5c3d2e; border-radius: 10px; font-size: 1rem; box-sizing: border-box; font-family: inherit; }
 .contact-box button { display: block; margin: 1rem auto 0 auto; padding: 0.8rem 2rem; background: #5c3d2e; color: #fdf8f0; border: none; border-radius: 10px; font-size: 1rem; cursor: pointer; transition: 0.3s; }
 .contact-box button:hover { background: #8b5e3c; }
 
-footer { background: #5c3d2e; color: white; text-align: center; padding: 1rem; margin-top: auto; width: 100%; }
+footer { 
+  background: #5c3d2e; 
+  color: white; 
+  text-align: center; 
+  padding: 1rem; 
+  margin-top: auto; /* يلتصق بآخر الصفحة */
+  width: 100%; 
+}
 footer a { color: white; text-decoration: none; margin: 0 0.5rem; }
 footer a:hover { color: #d9b08c; }
 footer .footer-line { margin: 0.5rem 0; }
@@ -143,7 +170,6 @@ footer .footer-line { margin: 0.5rem 0; }
   padding-bottom: 2rem;
 }
 
-/* النص (أقصى اليمين ونازل شوي) */
 .slider-text {
   color: white;
   font-size: 1.5rem;
@@ -157,8 +183,9 @@ footer .footer-line { margin: 0.5rem 0; }
   margin-bottom: -10px; 
 }
 
+/* بطاقات المنتجات (حدود بنية 2 بكسل + شدو) */
 .product-card {
-  border: 1px solid #5c3d2e !important;
+  border: 2px solid #5c3d2e !important;
   border-radius: 10px !important;
   transition: all 0.3s ease !important;
 }
@@ -167,18 +194,16 @@ footer .footer-line { margin: 0.5rem 0; }
   header { padding: 0 15px; height: 60px; }
   .rectangles { flex-direction: column; gap: 15px; padding: 1rem; }
   .rect { width: 100%; height: 200px; }
-  .contact-box { margin: 100px 15px 2rem 15px; padding: 1.5rem; }
+  
+  .contact-section { margin-top: 0; }
+  .contact-box { margin: 100px auto 2rem auto; width: 95%; }
+  
   .products-list { grid-template-columns: 1fr; }
   
-  .about-main-img { 
-    margin-top: 60px; 
-  } 
+  .about-main-img { margin-top: 60px; } 
   .about-main-img img { 
-    width: 100%;
-    height: auto; 
     border-radius: 0 0 15px 15px !important; 
-    border: 1px solid #5c3d2e !important;
-    border-top: none !important;
+    border: none !important; 
   }
   
   .about-sections { margin: 1rem; }
@@ -207,11 +232,7 @@ footer .footer-line { margin: 0.5rem 0; }
     margin-bottom: -5px !important; 
   }
 
-  header .logo-img {
-    height: 40px !important; 
-  }
+  header .logo-img { height: 40px !important; }
 
-  .top-banner {
-    margin-top: 60px;
-  }
+  .top-banner { margin-top: 60px; }
 }
