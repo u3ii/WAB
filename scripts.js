@@ -15,15 +15,21 @@ if (menuToggle && sideMenu) {
 document.querySelectorAll('.rect, .info-box, .product-card').forEach(el => {
   el.style.transition = 'all 0.3s ease';
 
-  el.addEventListener('mouseenter', () => {
-    el.style.transform = 'scale(0.98)';
-    el.style.boxShadow = '0 4px 10px rgba(92,61,46,0.2)';
-  });
-  
-  el.addEventListener('mouseleave', () => {
-    el.style.transform = 'scale(1)';
+  const activateEffect = () => {
+    el.style.transform = 'scale(0.97) translateY(-2px)';
+    el.style.boxShadow = '0 6px 15px rgba(92,61,46,0.3)';
+  };
+
+  const deactivateEffect = () => {
+    el.style.transform = 'scale(1) translateY(0)';
     el.style.boxShadow = 'none';
-  });
+  };
+
+  el.addEventListener('mouseenter', activateEffect);
+  el.addEventListener('mouseleave', deactivateEffect);
+  
+  el.addEventListener('touchstart', activateEffect, {passive: true});
+  el.addEventListener('touchend', deactivateEffect);
 });
 
 const sliderText = document.querySelector('.slider-text');
