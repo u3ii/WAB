@@ -1,5 +1,4 @@
 
-
 @import url('https://cdn.jsdelivr.net/gh/mokhtarbsaid/saudi-font/all.min.css');
 
 * {
@@ -72,20 +71,18 @@ header .logo-img {
 .rect img { width: 100%; height: 100%; object-fit: cover; border-radius: 15px; }
 .rect-text { position: absolute; bottom: 15px; right: 15px; background: #5c3d2e; color: white; padding: 0.4rem 1.2rem; border-radius: 8px; font-size: 1.3rem; font-weight: bold; }
 
-/* الحل الجذري لصورة صفحة "عنا" */
+/* التعديل المطلوب لصورة "عنا" */
 .about-main-img { 
-  margin-top: 70px; /* مساحة الهيدر */
+  margin-top: 70px; 
   width: 100%;
-  padding: 0; /* شلنا أي هوامش */
 } 
 
 .about-main-img img { 
   width: 100%; 
-  height: auto; /* رجعناها تاخذ طولها الطبيعي بدون قص */
+  height: auto; 
   display: block;
-  /* إزالة الحدود والزوايا اللي كانت تخرب الشكل */
-  border: none; 
-  border-radius: 0; 
+  border-radius: 0 !important; /* هذا اللي يشيل الزوايا من فوق ومن تحت ويخليها مربعة */
+  border: none !important; 
 }
 
 .about-sections { display: flex; flex-direction: column; gap: 1.5rem; margin: 2rem; }
@@ -160,15 +157,12 @@ footer .footer-line { margin: 0.5rem 0; }
   .contact-box { margin: 100px 15px 2rem 15px; padding: 1.5rem; }
   .products-list { grid-template-columns: 1fr; }
   
-  /* الحل الجذري لصورة "عنا" في الجوال */
   .about-main-img { 
     margin-top: 60px; 
-    height: auto; /* نتركها تاخذ راحتها */
   } 
   .about-main-img img { 
     width: 100%;
     height: auto; 
-    object-fit: contain; 
   }
   
   .about-sections { margin: 1rem; }
