@@ -1,5 +1,4 @@
 
-
 const menuToggle = document.getElementById('menuToggle');
 const sideMenu = document.getElementById('sideMenu');
 
@@ -12,14 +11,17 @@ sideMenu.querySelectorAll('a').forEach(link => {
 });
 
 document.querySelectorAll('.rect, .info-box, .product-card').forEach(el => {
+  el.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
+  el.style.boxShadow = '0 4px 8px rgba(92,61,46,0.2)';
+
   el.addEventListener('mouseenter', () => {
-    el.style.transform = 'scale(0.98)';
-    el.style.boxShadow = '0 4px 10px rgba(0,0,0,0.2)';
-    el.style.transition = 'transform 0.2s ease, box-shadow 0.2s ease';
+    el.style.transform = 'translateY(-3px)';
+    el.style.boxShadow = '0 8px 15px rgba(92,61,46,0.3)';
   });
+  
   el.addEventListener('mouseleave', () => {
-    el.style.transform = 'scale(1)';
-    el.style.boxShadow = 'none';
+    el.style.transform = 'translateY(0)';
+    el.style.boxShadow = '0 4px 8px rgba(92,61,46,0.2)';
   });
 });
 
@@ -44,4 +46,3 @@ if (mainVideo) {
     mainVideo.play();
   });
 }
-
