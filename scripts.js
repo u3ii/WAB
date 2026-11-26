@@ -13,11 +13,9 @@ if (menuToggle && sideMenu) {
 }
 
 document.querySelectorAll('.rect, .info-box, .product-card').forEach(el => {
-  el.style.transition = 'all 0.3s ease';
-
   const activateEffect = () => {
-    el.style.transform = 'scale(0.97) translateY(-2px)';
-    el.style.boxShadow = '0 6px 15px rgba(92,61,46,0.3)';
+    el.style.transform = 'scale(0.97) translateY(-3px)';
+    el.style.boxShadow = '0 8px 15px rgba(92, 61, 46, 0.3)';
   };
 
   const deactivateEffect = () => {
