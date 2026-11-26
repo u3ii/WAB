@@ -12,20 +12,26 @@ if (menuToggle && sideMenu) {
   });
 }
 
+// هذا الجزء هو اللي يضيف الشدو للمنتجات والمربعات
 document.querySelectorAll('.rect, .info-box, .product-card').forEach(el => {
   const activateEffect = () => {
-    el.style.transform = 'scale(0.97) translateY(-3px)';
-    el.style.boxShadow = '0 8px 15px rgba(92, 61, 46, 0.3)';
+    // إضافة الشدو (الظل) عند اللمس
+    el.style.boxShadow = '0 8px 20px rgba(92, 61, 46, 0.4)';
+    el.style.transform = 'scale(0.98) translateY(-2px)';
+    el.style.transition = 'all 0.3s ease';
   };
 
   const deactivateEffect = () => {
-    el.style.transform = 'scale(1) translateY(0)';
+    // إزالة الشدو عند رفع الإصبع
     el.style.boxShadow = 'none';
+    el.style.transform = 'scale(1) translateY(0)';
   };
 
+  // للكمبيوتر (الماوس)
   el.addEventListener('mouseenter', activateEffect);
   el.addEventListener('mouseleave', deactivateEffect);
   
+  // للجوال (اللمس)
   el.addEventListener('touchstart', activateEffect, {passive: true});
   el.addEventListener('touchend', deactivateEffect);
 });
